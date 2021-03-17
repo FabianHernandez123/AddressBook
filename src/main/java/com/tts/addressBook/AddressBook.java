@@ -1,6 +1,7 @@
 package com.tts.addressBook;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class AddressBook {
     private ArrayList<Entry> bookList = new ArrayList<>();
@@ -22,6 +23,43 @@ public class AddressBook {
         //do this in an iterative way, making some list
         //print out all the properties of that list..
         //if there is no match print that out too
+        ArrayList<Entry> returnList = new ArrayList<>();
+        searchString = searchString.trim().toLowerCase();
+        int stringLength = searchString.length();
+        for(Entry entry: bookList) {
+            if(searchType.equalsIgnoreCase("1")){
+                String name = entry.getFirstName().toLowerCase();
+                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                    returnList.add(entry);
+                }
+            }
+            if(searchType.equalsIgnorceCase("2")){
+                String name = entry.getLastName().toLowerCase();
+                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                    returnList.add(entry);
+                }
+            }
+            if(searchType.equalsIgnoreCase("3")){
+                String name = entry.getPhoneNumber().toLowerCase();
+                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                    returnList.add(entry);
+                }
+            }
+            if(searchType.equalsIgnoreCase("4")){
+                String name = entry.getEmail().toLowerCase();
+                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                    returnList.add(entry);
+                }
+            }
+        }
+        for(Entry entry: returnList){
+            System.out.println("************");
+            System.out.println("First Name: "+entry.getFirstName());
+            System.out.println("Last Name: "+entry.getLastName());
+            System.out.println("Phone Number: "+entry.getPhoneNumber());
+            System.out.println("Email: "+entry.getEmail());
+            System.out.println("************");
+        }
 
 
 
