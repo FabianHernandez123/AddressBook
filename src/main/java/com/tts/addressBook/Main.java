@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) {
         AddressBook book = new AddressBook();
 
+
         System.out.println("1) Add an entry\n");
         System.out.println("2) Remove an entry\n");
         System.out.println("3) Search for a specific entry\n");

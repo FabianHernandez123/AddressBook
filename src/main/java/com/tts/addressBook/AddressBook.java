@@ -14,7 +14,7 @@ public class AddressBook {
 
     }
 
-    public Entry searchEntry(String searchType, String searchString) {
+    public void searchEntry(String searchType, String searchString) {
         //can strip the string of new line
         //can check the length of the string.
         //can look at the length of that property in our Entry getting
@@ -33,7 +33,7 @@ public class AddressBook {
                     returnList.add(entry);
                 }
             }
-            if(searchType.equalsIgnorceCase("2")){
+            if(searchType.equals("2")){
                 String name = entry.getLastName().toLowerCase();
                 if ((name.substring(0,stringLength-1)).equals(searchString)){
                     returnList.add(entry);
@@ -52,18 +52,20 @@ public class AddressBook {
                 }
             }
         }
-        for(Entry entry: returnList){
-            System.out.println("************");
-            System.out.println("First Name: "+entry.getFirstName());
-            System.out.println("Last Name: "+entry.getLastName());
-            System.out.println("Phone Number: "+entry.getPhoneNumber());
-            System.out.println("Email: "+entry.getEmail());
-            System.out.println("************");
+        if(returnList.size()==0){
+            System.out.println("Nothing found in Address Book");
+        } else {
+            for (Entry entry : returnList) {
+                System.out.println("************");
+                System.out.println("First Name: " + entry.getFirstName());
+                System.out.println("Last Name: " + entry.getLastName());
+                System.out.println("Phone Number: " + entry.getPhoneNumber());
+                System.out.println("Email: " + entry.getEmail());
+                System.out.println("************");
+            }
         }
 
 
-
-        return new Entry();
     }
 
     public void printBook() {
