@@ -1,10 +1,13 @@
 package com.tts.addressBook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class AddressBook {
-    private ArrayList<Entry> bookList = new ArrayList<>();
+    private List<Entry> bookList = new ArrayList<Entry>();
+
+    public AddressBook(){};
 
     public void addEntry(Entry entry) {
         this.bookList.add(entry);
@@ -23,13 +26,15 @@ public class AddressBook {
         //do this in an iterative way, making some list
         //print out all the properties of that list..
         //if there is no match print that out too
-        ArrayList<Entry> returnList = new ArrayList<>();
+        ArrayList<Entry> returnList = new ArrayList<Entry>();
         searchString = searchString.trim().toLowerCase();
         int stringLength = searchString.length();
-        for(Entry entry: bookList) {
+        for(Entry entry: this.bookList) {
+            System.out.println("Testing"+entry.getFirstName());
             if(searchType.equalsIgnoreCase("1")){
                 String name = entry.getFirstName().toLowerCase();
                 if ((name.substring(0,stringLength-1)).equals(searchString)){
+                    System.out.println("name: "+name+"searchstring: "+searchString);
                     returnList.add(entry);
                 }
             }
@@ -52,6 +57,7 @@ public class AddressBook {
                 }
             }
         }
+        System.out.println(returnList.toString());
         if(returnList.size()==0){
             System.out.println("Nothing found in Address Book");
         } else {
@@ -69,7 +75,14 @@ public class AddressBook {
     }
 
     public void printBook() {
-
+        for(Entry entry: this.bookList){
+            System.out.println("************");
+            System.out.println("First Name: " + entry.getFirstName());
+            System.out.println("Last Name: " + entry.getLastName());
+            System.out.println("Phone Number: " + entry.getPhoneNumber());
+            System.out.println("Email: " + entry.getEmail());
+            System.out.println("************\n");
+        }
     }
 
     public void deleteBook() {
