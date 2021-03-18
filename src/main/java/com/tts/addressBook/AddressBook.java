@@ -17,6 +17,7 @@ public class AddressBook {
         List<Entry> removeLater = new ArrayList<Entry>();
         for(Entry entryhere: this.bookList){
             if(email.equals(entryhere.getEmail())){
+                System.out.println("Deleted the following entry: \n");
                 System.out.println("************");
                 System.out.println("First Name: " + entryhere.getFirstName());
                 System.out.println("Last Name: " + entryhere.getLastName());
@@ -26,6 +27,9 @@ public class AddressBook {
                 removeLater.add(entryhere);
             }
         } this.bookList.removeAll(removeLater);
+        if(removeLater.size()==0){
+            System.out.println("Entry not found!\n");
+        }
 
     }
 
@@ -42,11 +46,9 @@ public class AddressBook {
         searchString = searchString.trim().toLowerCase();
         int stringLength = searchString.length();
         for(Entry entry: this.bookList) {
-            System.out.println("Testing"+entry.getFirstName());
             if(searchType.equals("1")){
                 String name = entry.getFirstName().toLowerCase();
                 if ((name.substring(0,stringLength)).equals(searchString)){
-                    System.out.println("name: "+name+"searchstring: "+searchString);
                     returnList.add(entry);
                 }
             }
@@ -71,7 +73,7 @@ public class AddressBook {
         }
 
         if(returnList.size()==0){
-            System.out.println("Nothing found in Address Book");
+            System.out.println("No results found! \n");
         } else {
             for (Entry entry : returnList) {
                 System.out.println("************");
@@ -79,7 +81,7 @@ public class AddressBook {
                 System.out.println("Last Name: " + entry.getLastName());
                 System.out.println("Phone Number: " + entry.getPhoneNumber());
                 System.out.println("Email: " + entry.getEmail());
-                System.out.println("************");
+                System.out.println("************\n");
             }
         }
 
@@ -88,7 +90,7 @@ public class AddressBook {
 
     public void printBook() {
         if(this.bookList.size()==0){
-            System.out.println("This Address Book is Empty.");
+            System.out.println("Address Book is Empty!\n");
         }else {
             for (Entry entry : this.bookList) {
                 System.out.println("************");

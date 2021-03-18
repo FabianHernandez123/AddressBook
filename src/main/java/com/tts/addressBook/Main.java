@@ -13,7 +13,7 @@ public class Main {
             System.out.println("3) Search for a specific entry\n");
             System.out.println("4) Print Address Book\n");
             System.out.println("5) Delete Book\n");
-            System.out.println("6) Quit\n\n");
+            System.out.println("6) Quit\n");
 
             Scanner userInput = new Scanner(System.in);
             System.out.println("Please choose what you'd like to do with the database: ");
@@ -27,7 +27,7 @@ public class Main {
                 String phoneNum = userInput.nextLine();
                 System.out.println("Email Address: ");
                 String email = userInput.nextLine();
-                System.out.println("Added new entry! ");
+                System.out.println("Added new entry! \n");
                 Entry newEntry = new Entry(firstName, lastName, phoneNum, email);
                 book.addEntry(newEntry);
             }
@@ -49,7 +49,7 @@ public class Main {
                         String searchString = userInput.nextLine();
                         book.searchEntry(searchType, searchString);
                     } else {
-                        System.out.println("Invalid Search option.");
+                        System.out.println("Invalid Search option.\n");
                     }
             }
             if(firstResp.equalsIgnoreCase("4")){
