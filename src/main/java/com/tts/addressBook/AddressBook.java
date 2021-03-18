@@ -45,31 +45,31 @@ public class AddressBook {
             System.out.println("Testing"+entry.getFirstName());
             if(searchType.equals("1")){
                 String name = entry.getFirstName().toLowerCase();
-                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                if ((name.substring(0,stringLength)).equals(searchString)){
                     System.out.println("name: "+name+"searchstring: "+searchString);
                     returnList.add(entry);
                 }
             }
             if(searchType.equals("2")){
                 String name = entry.getLastName().toLowerCase();
-                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                if ((name.substring(0,stringLength)).equals(searchString)){
                     returnList.add(entry);
                 }
             }
             if(searchType.equals("3")){
                 String name = entry.getPhoneNumber().toLowerCase();
-                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                if ((name.substring(0,stringLength)).equals(searchString)){
                     returnList.add(entry);
                 }
             }
             if(searchType.equals("4")){
                 String name = entry.getEmail().toLowerCase();
-                if ((name.substring(0,stringLength-1)).equals(searchString)){
+                if ((name.substring(0,stringLength)).equals(searchString)){
                     returnList.add(entry);
                 }
             }
         }
-        System.out.println(returnList.toString());
+
         if(returnList.size()==0){
             System.out.println("Nothing found in Address Book");
         } else {
