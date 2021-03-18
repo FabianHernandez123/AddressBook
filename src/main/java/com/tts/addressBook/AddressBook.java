@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class AddressBook {
-    private List<Entry> bookList = new ArrayList<Entry>();
+    private ArrayList<Entry> bookList = new ArrayList<Entry>();
 
     public AddressBook(){};
 
@@ -13,7 +13,19 @@ public class AddressBook {
         this.bookList.add(entry);
     }
 
-    public void removeEntry() {
+    public void removeEntry(String email) {
+        List<Entry> removeLater = new ArrayList<Entry>();
+        for(Entry entryhere: this.bookList){
+            if(email.equals(entryhere.getEmail())){
+                System.out.println("************");
+                System.out.println("First Name: " + entryhere.getFirstName());
+                System.out.println("Last Name: " + entryhere.getLastName());
+                System.out.println("Phone Number: " + entryhere.getPhoneNumber());
+                System.out.println("Email: " + entryhere.getEmail());
+                System.out.println("************\n");
+                removeLater.add(entryhere);
+            }
+        } this.bookList.removeAll(removeLater);
 
     }
 
@@ -31,7 +43,7 @@ public class AddressBook {
         int stringLength = searchString.length();
         for(Entry entry: this.bookList) {
             System.out.println("Testing"+entry.getFirstName());
-            if(searchType.equalsIgnoreCase("1")){
+            if(searchType.equals("1")){
                 String name = entry.getFirstName().toLowerCase();
                 if ((name.substring(0,stringLength-1)).equals(searchString)){
                     System.out.println("name: "+name+"searchstring: "+searchString);
@@ -44,13 +56,13 @@ public class AddressBook {
                     returnList.add(entry);
                 }
             }
-            if(searchType.equalsIgnoreCase("3")){
+            if(searchType.equals("3")){
                 String name = entry.getPhoneNumber().toLowerCase();
                 if ((name.substring(0,stringLength-1)).equals(searchString)){
                     returnList.add(entry);
                 }
             }
-            if(searchType.equalsIgnoreCase("4")){
+            if(searchType.equals("4")){
                 String name = entry.getEmail().toLowerCase();
                 if ((name.substring(0,stringLength-1)).equals(searchString)){
                     returnList.add(entry);

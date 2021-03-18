@@ -29,7 +29,11 @@ public class Main {
                 System.out.println("Added new entry! ");
                 Entry newEntry = new Entry(firstName, lastName, phoneNum, email);
                 book.addEntry(newEntry);
-
+            }
+            if(firstResp.equalsIgnoreCase("2")){
+                System.out.println("Enter an entry's email to remove: ");
+                String emailRemove = userInput.nextLine();
+                book.removeEntry(emailRemove);
             }
             if (firstResp.equalsIgnoreCase("3")) {
                 System.out.println("1) First Name\n");
