@@ -1,5 +1,6 @@
 package com.tts.addressBook;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -42,9 +43,14 @@ public class Main {
                 System.out.println("4) Email Address\n");
                 System.out.println("Choose a search type: ");
                 String searchType = userInput.nextLine();
-                System.out.println("Enter your search: ");
-                String searchString = userInput.nextLine();
-                book.searchEntry(searchType, searchString);
+                    String[] optionList = {"1", "2", "3", "4"};
+                    if(Arrays.asList(optionList).contains(searchType)) {
+                        System.out.println("Enter your search: ");
+                        String searchString = userInput.nextLine();
+                        book.searchEntry(searchType, searchString);
+                    } else {
+                        System.out.println("Invalid Search option.");
+                    }
             }
             if(firstResp.equalsIgnoreCase("4")){
                 book.printBook();
