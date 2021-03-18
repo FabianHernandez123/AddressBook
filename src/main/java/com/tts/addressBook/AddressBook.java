@@ -75,18 +75,22 @@ public class AddressBook {
     }
 
     public void printBook() {
-        for(Entry entry: this.bookList){
-            System.out.println("************");
-            System.out.println("First Name: " + entry.getFirstName());
-            System.out.println("Last Name: " + entry.getLastName());
-            System.out.println("Phone Number: " + entry.getPhoneNumber());
-            System.out.println("Email: " + entry.getEmail());
-            System.out.println("************\n");
+        if(this.bookList.size()==0){
+            System.out.println("This Address Book is Empty.");
+        }else {
+            for (Entry entry : this.bookList) {
+                System.out.println("************");
+                System.out.println("First Name: " + entry.getFirstName());
+                System.out.println("Last Name: " + entry.getLastName());
+                System.out.println("Phone Number: " + entry.getPhoneNumber());
+                System.out.println("Email: " + entry.getEmail());
+                System.out.println("************\n");
+            }
         }
     }
 
     public void deleteBook() {
-
+        this.bookList = new ArrayList<Entry>();
     }
 
 

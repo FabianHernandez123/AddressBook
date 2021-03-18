@@ -45,6 +45,12 @@ public class Main {
             if(firstResp.equalsIgnoreCase("4")){
                 book.printBook();
             }
+            if(firstResp.equalsIgnoreCase("5")){
+                book.deleteBook();
+            }
+            if(firstResp.equalsIgnoreCase("6")) {
+                continueVar = false;
+            }
         } while(continueVar);
     }
 }
